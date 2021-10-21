@@ -22,11 +22,9 @@ public record JEP394PatternMatchingForInstanceof(Connection con) {
         try (PreparedStatement stmt = con.prepareStatement(sql)) {
             int index = 1;
             for (var object : params) {
-                if (object instanceof String) {
-                    String strValue = (String) object;
+                if (object instanceof String strValue) {
                     stmt.setString(index, strValue);
-                } else if (object instanceof Integer) {
-                    Integer intValue = (Integer) object;
+                } else if (object instanceof Integer intValue) {
                     stmt.setInt(index, intValue);
                 }
                 index++;
