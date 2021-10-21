@@ -13,18 +13,9 @@ public class JEP361SwitchExpressions {
     }
 
     public static boolean isBusinessDay(DayOfWeek dayOfWeek) {
-        switch (dayOfWeek) {
-            case MONDAY:
-            case TUESDAY:
-            case WEDNESDAY:
-            case THURSDAY:
-            case FRIDAY:
-                return true;
-            case SATURDAY:
-            case SUNDAY:
-                return false;
-            default:
-                return false;
-        }
+        return switch (dayOfWeek) {
+            case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> true;
+            case SATURDAY, SUNDAY -> false;
+        };
     }
 }
