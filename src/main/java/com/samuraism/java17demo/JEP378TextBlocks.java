@@ -6,11 +6,14 @@ package com.samuraism.java17demo;
  */
 public class JEP378TextBlocks {
     public static void main(String[] args) {
-        String myJson = "{\n" +
-                        "    \"name\": \"Yusuke Yamamoto\",\n" +
-                        "    \"postal-code\": \"171-0022\",\n" +
-                        "    \"address\": \"Minami-Ikebukuro 2-33-6\",\n" +
-                        "}";
+        String name = "Yusuke Yamamoto";
+        String postalCode = "171-0022";
+        String myJson = """
+                {
+                    "name": "%s",
+                    "postal-code": "%S",
+                    "address": "Minami-Ikebukuro 2-33-6"
+                }""".formatted(name, postalCode);
         System.out.println(myJson);
     }
 }
